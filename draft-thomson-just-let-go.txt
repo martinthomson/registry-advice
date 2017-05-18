@@ -1,0 +1,336 @@
+
+
+
+
+None                                                          M. Thomson
+Internet-Draft                                                   Mozilla
+Intended status: Standards Track                            May 18, 2017
+Expires: November 19, 2017
+
+
+                Your IANA Registry Policy is Too Strict
+                    draft-thomson-just-let-go-latest
+
+Abstract
+
+   Strict registration policies for IANA registries are rarely
+   advisable.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on November 19, 2017.
+
+Copyright Notice
+
+   Copyright (c) 2017 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 1]
+
+Internet-Draft                 Just Let Go                      May 2017
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Registries Are Not a Tool for Control . . . . . . . . . . . .   2
+   3.  Private and Experimental Use Leaks  . . . . . . . . . . . . .   3
+   4.  Consider Provisional Registrations  . . . . . . . . . . . . .   3
+   5.  Experts aren't Guardians  . . . . . . . . . . . . . . . . . .   4
+   6.  RFC Required is Rarely Appropriate  . . . . . . . . . . . . .   4
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+   9.  Informative References  . . . . . . . . . . . . . . . . . . .   5
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+
+1.  Introduction
+
+   Many protocols use the protocol registries that are managed by the
+   Internet Assigned Numbers Authority (IANA) [IANA-MOU] to manage the
+   allocation of protocol parameters.  When establishing a registry for
+   protocol parameters, choosing an appropriate registration policy is
+   critical.
+
+   While registries might be perceived as a way of retaining some sort
+   of control over use of protocols, stricter policies tend to
+   inappropriately constrain protocol deployment and can lead to
+   violation of those policies.  A permissive registration policy for
+   IANA registries avoids these issues and encourages better use of
+   registries.
+
+   This document examines the common registration policies defined in
+   RFC 5226 [IANA-CONS] and provides advice on how to define
+   appropriately permissive registration policies based using those
+   building blocks.
+
+2.  Registries Are Not a Tool for Control
+
+   It is often stated in the defense of a strict registration policy,
+   such as Standards Action, that this this is necessary to ensure a
+   measure of control over how the protocol develops.  The rationale
+   being that use of new codepoints in a given space requires careful
+   consideration and discussion and that interoperation would be
+   adversely affected by the use of codepoints that are poorly
+   specified.
+
+   In practice, choosing stricter registry policies does little to
+   discourage the use of codepoints.  On the contrary, a stricter policy
+   tends to create externalities.  This can lead to use of codepoints in
+   violation of the policy.
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 2]
+
+Internet-Draft                 Just Let Go                      May 2017
+
+
+   The primary purpose of a registry is to ensure that incompatible
+   semantics are not associated with the same code point.  Avoiding
+   registration of codepoints that are in use is highly likely to result
+   in interoperability failures.  Thus, interoperability is not served
+   by a policy that makes it difficult to register a codepoint.
+
+3.  Private and Experimental Use Leaks
+
+   Many protocols reserve a range of codepoints for "Private Use" or
+   "Experimental Use" [IANA-CONS].  The motivation for using these
+   policies being that experimentation or proprietary use of extensions
+   can be enabled by reserving a portion of the space for codepoints.
+
+   Private and experimental use of protocol extensions can become more
+   widely used than originally intended.  Separately, implementations
+   might create rules for special treatment of codepoints in these
+   spaces.  RFC 6648 [X-DASH] provides more detail on the various issues
+   with reserving experimental or private use protocol identifiers.
+
+   Moving a protocol semantic from an established experimental or
+   private use codepoint to a new codepoint is difficult.  For
+   codepoints that become widely used, this difficulty increases.  The
+   success of a protocol extension that is defined in a private or
+   experimental use space often leads to long term use of that
+   codepoint.
+
+   Avoid using the "Private Use" or "Experimental Use" policies.
+   Selecting more lenient registration policies is a better way of
+   enabling private use.  Provisional registrations are more appropriate
+   for supporting experimentation.
+
+4.  Consider Provisional Registrations
+
+   Some existing registries have a policy that allows provisional
+   registration, for example RFC 7595 [URI-REG] or RFC 3864
+   [HEADER-REG].  Registrations that are designated "provisional" are
+   usually defined as being more readily created, changed, reassigned,
+   moved to another status, or even removed.  For instance, RFC 7595
+   allows a provisional registration to be made with incomplete
+   information.
+
+   Allowing provisional registration ensures that the primary goal of
+   maintaining a registry - avoiding collisions between incompatible
+   semantics - is preserved without inadvertently creating statements
+   about the value of the protocol mechanism that are identified in a
+   registry.
+
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 3]
+
+Internet-Draft                 Just Let Go                      May 2017
+
+
+   Provisional registrations for codepoints that are ultimately
+   standardized can be promoted to permanent status.  The criteria that
+   are defined for marking a provisional registration as permanent could
+   be made as strict as desired.
+
+   To support experimentation, provisional registrations could be
+   defined as having expiration dates.  However, renewing an expiration
+   date should be no harder than the creation of the registration.  If a
+   policy allows for explicit removal of registrations, stronger
+   controls are advised to avoid accidental or malicious removals.
+
+   A similar system to provisional registration is adopted for TLS
+   registries [TLS-REG].  Permissive registration policies are defined
+   for the creation of new entries.  TLS registries include a field that
+   identifies codepoints as "Recommended".  A Standards Track document
+   [IETF-STD] is required in order to mark a codepoint as "Recommended".
+
+5.  Experts aren't Guardians
+
+   The "Expert Review" and "Specification Required" policies rely on
+   review of registration applications by a designated expert.  A
+   registry that is established without guidance to an expert
+   effectively cedes decisions about registration policy to the expert,
+   which can lead to arbitrary policy.
+
+   Experts, by their nature, can be predisposed to reject registrations.
+   This discourages use of the registry, which can harm
+   interoperability.
+
+   If a registry has a designated expert, define a narrow set of
+   conditions for rejection of registration applications (see Section 7
+   for some simple criteria).  This encourages approval of registrations
+   and can made the task of the expert easier.
+
+6.  RFC Required is Rarely Appropriate
+
+   The "RFC Required" policy [IANA-CONS] is often used inappropriately
+   as a proxy for another property.
+
+   For example, if the intent is to require community consensus then
+   "IETF Consensus", "Standards Action" or possibly "IESG Approval" are
+   likely to be more appropriate.  Where the intent is to insist on a
+   particular standard of documentation for a specification, then the
+   "Specification Required" policy with additional guidance to a
+   designated expert can acheive the same end.
+
+   In general, avoid the use of the "RFC Required" policy.
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 4]
+
+Internet-Draft                 Just Let Go                      May 2017
+
+
+7.  Security Considerations
+
+   Increased use of limited codepoint spaces is a potential adverse
+   outcome of a more lenient registration policy.  For registries with
+   designated experts, detecting and blocking this sort of attack can be
+   easy.  If a policy includes review from an expert, allowing experts
+   to reject registrations that are excessive or duplicative can help.
+
+   To avoid exhaustion of limited space, registries that have limited
+   space are advised to avoid the First Come, First Served policy
+   [IANA-CONS].
+
+8.  IANA Considerations
+
+   This document makes no request of IANA.
+
+9.  Informative References
+
+   [HEADER-REG]
+              Klyne, G., Nottingham, M., and J. Mogul, "Registration
+              Procedures for Message Header Fields", BCP 90, RFC 3864,
+              DOI 10.17487/RFC3864, September 2004,
+              <http://www.rfc-editor.org/info/rfc3864>.
+
+   [IANA-CONS]
+              Narten, T. and H. Alvestrand, "Guidelines for Writing an
+              IANA Considerations Section in RFCs", BCP 26, RFC 5226,
+              DOI 10.17487/RFC5226, May 2008,
+              <http://www.rfc-editor.org/info/rfc5226>.
+
+   [IANA-MOU]
+              Carpenter, B., Baker, F., and M. Roberts, "Memorandum of
+              Understanding Concerning the Technical Work of the
+              Internet Assigned Numbers Authority", RFC 2860,
+              DOI 10.17487/RFC2860, June 2000,
+              <http://www.rfc-editor.org/info/rfc2860>.
+
+   [IETF-STD]
+              Bradner, S., "The Internet Standards Process -- Revision
+              3", BCP 9, RFC 2026, DOI 10.17487/RFC2026, October 1996,
+              <http://www.rfc-editor.org/info/rfc2026>.
+
+   [TLS-REG]  Salowey, J. and S. Turner, "D/TLS IANA Registry Updates",
+              draft-ietf-tls-iana-registry-updates-01 (work in
+              progress), April 2017.
+
+
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 5]
+
+Internet-Draft                 Just Let Go                      May 2017
+
+
+   [URI-REG]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
+              and Registration Procedures for URI Schemes", BCP 35,
+              RFC 7595, DOI 10.17487/RFC7595, June 2015,
+              <http://www.rfc-editor.org/info/rfc7595>.
+
+   [X-DASH]   Saint-Andre, P., Crocker, D., and M. Nottingham,
+              "Deprecating the "X-" Prefix and Similar Constructs in
+              Application Protocols", BCP 178, RFC 6648,
+              DOI 10.17487/RFC6648, June 2012,
+              <http://www.rfc-editor.org/info/rfc6648>.
+
+Author's Address
+
+   Martin Thomson
+   Mozilla
+
+   Email: martin.thomson@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Thomson                 Expires November 19, 2017               [Page 6]
