@@ -4,17 +4,20 @@
 
 None                                                          M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Standards Track                            May 18, 2017
-Expires: November 19, 2017
+Intended status: Standards Track                           June 05, 2017
+Expires: December 7, 2017
 
 
-                Your IANA Registry Policy is Too Strict
-                    draft-thomson-just-let-go-latest
+             Advice for Creating IANA Registration Policies
+                  draft-thomson-registry-advice-latest
 
 Abstract
 
-   Strict registration policies for IANA registries are rarely
-   advisable.
+   RFC 5226 defines procedures for establishing a registry of protocol
+   parameters.  That document contains minimal advice about what
+   policies might be adopted and the implications of those choices.
+   This document provides some advice, primarily that strict
+   registration policies for IANA registries are rarely advisable.
 
 Status of This Memo
 
@@ -31,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 19, 2017.
+   This Internet-Draft will expire on December 7, 2017.
 
 Copyright Notice
 
@@ -50,12 +53,9 @@ Copyright Notice
 
 
 
-
-
-
-Thomson                 Expires November 19, 2017               [Page 1]
+Thomson                 Expires December 7, 2017                [Page 1]
 
-Internet-Draft                 Just Let Go                      May 2017
+Internet-Draft               Registry Advice                   June 2017
 
 
 Table of Contents
@@ -77,7 +77,7 @@ Table of Contents
    Internet Assigned Numbers Authority (IANA) [IANA-MOU] to manage the
    allocation of protocol parameters.  When establishing a registry for
    protocol parameters, choosing an appropriate registration policy is
-   critical.
+   critical.  RFC 5226 [IANA-CONS]
 
    While registries might be perceived as a way of retaining some sort
    of control over use of protocols, stricter policies tend to
@@ -85,6 +85,14 @@ Table of Contents
    violation of those policies.  A permissive registration policy for
    IANA registries avoids these issues and encourages better use of
    registries.
+
+   RFC 5226 [IANA-CONS] provides a small amount of advice, notably this
+   from Section 5.3:
+
+      In addition, documented IANA considerations are sometimes found to
+      be too stringent to allow even working group documents (for which
+      there is strong consensus) to obtain code points from IANA in
+      advance of actual RFC publication.
 
    This document examines the common registration policies defined in
    RFC 5226 [IANA-CONS] and provides advice on how to define
@@ -98,21 +106,21 @@ Table of Contents
    measure of control over how the protocol develops.  The rationale
    being that use of new codepoints in a given space requires careful
    consideration and discussion and that interoperation would be
+
+
+
+Thomson                 Expires December 7, 2017                [Page 2]
+
+Internet-Draft               Registry Advice                   June 2017
+
+
    adversely affected by the use of codepoints that are poorly
    specified.
 
    In practice, choosing stricter registry policies does little to
-   discourage the use of codepoints.  On the contrary, a stricter policy
-   tends to create externalities.  This can lead to use of codepoints in
-   violation of the policy.
-
-
-
-
-Thomson                 Expires November 19, 2017               [Page 2]
-
-Internet-Draft                 Just Let Go                      May 2017
-
+   discourage the use of codepoints.  A strict policy tends to
+   discourage registration, though less discouragement on the use of
+   codepoints.
 
    The primary purpose of a registry is to ensure that incompatible
    semantics are not associated with the same code point.  Avoiding
@@ -155,20 +163,18 @@ Internet-Draft                 Just Let Go                      May 2017
    allows a provisional registration to be made with incomplete
    information.
 
+
+
+Thomson                 Expires December 7, 2017                [Page 3]
+
+Internet-Draft               Registry Advice                   June 2017
+
+
    Allowing provisional registration ensures that the primary goal of
    maintaining a registry - avoiding collisions between incompatible
    semantics - is preserved without inadvertently creating statements
    about the value of the protocol mechanism that are identified in a
    registry.
-
-
-
-
-
-Thomson                 Expires November 19, 2017               [Page 3]
-
-Internet-Draft                 Just Let Go                      May 2017
-
 
    Provisional registrations for codepoints that are ultimately
    standardized can be promoted to permanent status.  The criteria that
@@ -201,7 +207,7 @@ Internet-Draft                 Just Let Go                      May 2017
 
    If a registry has a designated expert, define a narrow set of
    conditions for rejection of registration applications (see Section 7
-   for some simple criteria).  This encourages approval of registrations
+   for a sample criterion).  This encourages approval of registrations
    and can made the task of the expert easier.
 
 6.  RFC Required is Rarely Appropriate
@@ -212,19 +218,19 @@ Internet-Draft                 Just Let Go                      May 2017
    For example, if the intent is to require community consensus then
    "IETF Consensus", "Standards Action" or possibly "IESG Approval" are
    likely to be more appropriate.  Where the intent is to insist on a
+
+
+
+Thomson                 Expires December 7, 2017                [Page 4]
+
+Internet-Draft               Registry Advice                   June 2017
+
+
    particular standard of documentation for a specification, then the
    "Specification Required" policy with additional guidance to a
    designated expert can acheive the same end.
 
    In general, avoid the use of the "RFC Required" policy.
-
-
-
-
-Thomson                 Expires November 19, 2017               [Page 4]
-
-Internet-Draft                 Just Let Go                      May 2017
-
 
 7.  Security Considerations
 
@@ -268,19 +274,17 @@ Internet-Draft                 Just Let Go                      May 2017
               3", BCP 9, RFC 2026, DOI 10.17487/RFC2026, October 1996,
               <http://www.rfc-editor.org/info/rfc2026>.
 
+
+
+
+Thomson                 Expires December 7, 2017                [Page 5]
+
+Internet-Draft               Registry Advice                   June 2017
+
+
    [TLS-REG]  Salowey, J. and S. Turner, "D/TLS IANA Registry Updates",
               draft-ietf-tls-iana-registry-updates-01 (work in
               progress), April 2017.
-
-
-
-
-
-
-Thomson                 Expires November 19, 2017               [Page 5]
-
-Internet-Draft                 Just Let Go                      May 2017
-
 
    [URI-REG]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
               and Registration Procedures for URI Schemes", BCP 35,
@@ -329,8 +333,4 @@ Author's Address
 
 
 
-
-
-
-
-Thomson                 Expires November 19, 2017               [Page 6]
+Thomson                 Expires December 7, 2017                [Page 6]
