@@ -2,7 +2,7 @@
 
 This is the working area for the Individual internet-draft.
 
-* [Editor's copy](https://martinthomson.github.io/just-let-go/)
+* [Editor's copy](https://martinthomson.github.io/registry-advice/)
 * [Individual Draft](https://tools.ietf.org/html/draft-thomson-registry-advice)
 * [Compare Individual Draft and Editor's copy](https://tools.ietf.org/rfcdiff?url1=https://tools.ietf.org/id/draft-thomson-registry-advice.txt&url2=https://martinthomson.github.io/registry-advice/draft-thomson-registry-advice.txt)
 
