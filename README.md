@@ -1,10 +1,10 @@
 # Your IANA Registry Policy is Too Strict
 
-This is the working area for the Individual internet-draft, "Your IANA Registry Policy is Too Strict".
+This is the working area for the Individual internet-draft.
 
 * [Editor's copy](https://martinthomson.github.io/just-let-go/)
-* [Individual Draft](https://tools.ietf.org/html/draft-thomson-just-let-go)
-* [Compare Individual Draft and Editor's copy](https://tools.ietf.org/rfcdiff?url1=https://tools.ietf.org/id/draft-thomson-just-let-go.txt&url2=https://martinthomson.github.io/just-let-go/draft-thomson-just-let-go.txt)
+* [Individual Draft](https://tools.ietf.org/html/draft-thomson-registry-advice)
+* [Compare Individual Draft and Editor's copy](https://tools.ietf.org/rfcdiff?url1=https://tools.ietf.org/id/draft-thomson-registry-advice.txt&url2=https://martinthomson.github.io/registry-advice/draft-thomson-registry-advice.txt)
 
 
 ## Building the Draft
