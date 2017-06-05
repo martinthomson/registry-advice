@@ -1,7 +1,7 @@
 ---
-title: Your IANA Registry Policy is Too Strict
-abbrev: Just Let Go
-docname: draft-thomson-just-let-go-latest
+title: Advice for Creating IANA Registration Policies
+abbrev: Registry Advice
+docname: draft-thomson-registry-advice-latest
 category: std
 ipr: trust200902
 area: General
@@ -24,7 +24,11 @@ informative:
 
 --- abstract
 
-Strict registration policies for IANA registries are rarely advisable.
+RFC 5226 defines procedures for establishing a registry of protocol parameters.
+That document contains minimal advice about what policies might be adopted and
+the implications of those choices.  This document provides some advice,
+primarily that strict registration policies for IANA registries are rarely
+advisable.
 
 --- middle
 
@@ -34,13 +38,21 @@ Strict registration policies for IANA registries are rarely advisable.
 Many protocols use the protocol registries that are managed by the Internet
 Assigned Numbers Authority (IANA) {{?IANA-MOU=RFC2860}} to manage the allocation
 of protocol parameters.  When establishing a registry for protocol parameters,
-choosing an appropriate registration policy is critical.
+choosing an appropriate registration policy is critical.  RFC 5226 {{?IANA-CONS}} 
 
 While registries might be perceived as a way of retaining some sort of control
 over use of protocols, stricter policies tend to inappropriately constrain
 protocol deployment and can lead to violation of those policies.  A permissive
 registration policy for IANA registries avoids these issues and encourages
 better use of registries.
+
+RFC 5226 {{?IANA-CONS}} provides a small amount of advice, notably this from
+Section 5.3:
+
+> In addition, documented IANA considerations are sometimes found to be too
+> stringent to allow even working group documents (for which there is strong
+> consensus) to obtain code points from IANA in advance of actual RFC
+> publication.
 
 This document examines the common registration policies defined in RFC 5226
 {{?IANA-CONS=RFC5226}} and provides advice on how to define appropriately
@@ -57,8 +69,8 @@ interoperation would be adversely affected by the use of codepoints that are
 poorly specified.
 
 In practice, choosing stricter registry policies does little to discourage the
-use of codepoints.  On the contrary, a stricter policy tends to create
-externalities.  This can lead to use of codepoints in violation of the policy.
+use of codepoints.  A strict policy tends to discourage registration, though
+less discouragement on the use of codepoints.
 
 The primary purpose of a registry is to ensure that incompatible semantics are
 not associated with the same code point.  Avoiding registration of codepoints
@@ -133,8 +145,8 @@ Experts, by their nature, can be predisposed to reject registrations.  This
 discourages use of the registry, which can harm interoperability.
 
 If a registry has a designated expert, define a narrow set of conditions for
-rejection of registration applications (see {{security}} for some simple
-criteria).  This encourages approval of registrations and can made the task of
+rejection of registration applications (see {{security}} for a sample
+criterion).  This encourages approval of registrations and can made the task of
 the expert easier.
 
 
